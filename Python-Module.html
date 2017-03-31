@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ivesein">
+  <meta name="description" content="Posts and writings by Ivesein">
+
+  <link href="http://ivesein.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs Atom" />
+
+<meta name="keywords" content="Python">
+
+  <title>
+    Ivesein-Blogs
+&ndash; Python模块  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href=".">
+        <img src="/images/my_logo.png" alt="logo">
+      </a>
+      <h2><a href=".">Ivesein</a></h2>
+      <p>C/C++  PYTHON  GIT/GITHUB.  Work @Linux</p>
+      <ul>
+        <li><a href="./pages/guan-yu-wo.html">关于我</a></li>
+        <li><a href="./pages/wo-de-xiang-mu.html">我的项目</a></li>
+	<li><a href="mailto:ivesein@outlook.com" target="_blank">EMAIL</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
+      &brvbar; <a href="http://ivesein.github.io/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="./Python-Module.html">Python模块</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<p>Python模块(Module)是一个python文件,以.py结尾,包含了python对象定义和python语句.<br>
+模块能逻辑的组织代码段,把相关的代码分配到一个模块里能让代码更好用,更易懂.<br>
+模块能定义函数,类和变量,模块里也能包含可执行的代码.<br>
+下面是一个简单的模块 support.py:  </p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_func</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s2">&quot;Hello! : &quot;</span><span class="p">,</span> <span class="nb">str</span>
+    <span class="k">return</span>
+</pre></div>
+
+
+<hr>
+<h4>import 语句</h4>
+<h5>improt 导入模块</h5>
+<p>模块定义好后,我们可以使用import 语句来引入模块,语法如下:<br>
+<code>import module1[, module2[,...moduleN ]</code><br>
+比如要引入math,就可以在文件开头的地方用<strong>import math</strong>来引入,在调用math模块中的函数时,必须这样引用:<strong><code>math.functionname()</code></strong>,模块名.函数名<br>
+当解释器遇到import语句,如果模块在当前的搜索路径就会被引入.<br>
+搜索路径是一个解释器会先进行搜索的所有目录的列表.如想要到哦如模块support.py,需要把命令放在脚本的顶端:<br>
+test.py 文件代码:  </p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#-*- coding: UTF-8 -*-</span>
+<span class="c1">#导入模块support</span>
+<span class="kn">import</span> <span class="nn">support</span>
+
+<span class="c1">#现在可以调用模块里包含的函数了</span>
+<span class="n">support</span><span class="o">.</span><span class="n">print_func</span><span class="p">(</span><span class="s2">&quot;Ivesein&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>示例结果为:<br>
+<code>Hello! : Ivesein</code><br>
+一个模块只会被导入依次,不管你执行了多少次import.这样可以防止导入模块被一遍又一遍的执行.  </p>
+<h5>from XXX import XXX导入模块</h5>
+<p>Python的from语句让你从模块中导入一个指定的部分到当前的命名空间.语法如下:<br>
+<code>from XXX import name1, name2, name3, ... nameN</code><br>
+例如要导入support的pring_func()函数,使用以下语句:<br>
+<code>from support import print_func</code><br>
+这个声明不会把整个support模块导入到当前命名空间,它只会把support里的print_func单个引入到执行这个声明的模块的全局符号表里.  </p>
+<h5>from XXX import * 导入</h5>
+<p>把一个模块的所有内容全部导入到当前的命名空间也是可行的,只需要如下声明:<br>
+<code>from support import *</code><br>
+这提供了一个简单的方法来导入一个模块中的所有项目.然而这种声明不应该被过多的使用.  </p>
+<hr>
+<h4>搜索路径</h4>
+<p>当你导入一个模块,python解释器对模块的位置的搜索顺序是:<br>
+    1. 当前目录
+    2. 如果不在当前目录,搜索在shell变量PYTHONPATH下的每个目录
+    3. 如果都找不到,python会察看默认路径.UNIX下,默认路径一般为/usr/local/lib/python/
+模块搜索路径存储在system模块的sys.path变量中.变量里包含当前目录,PYTHONPATH和由安装过程决定的默认目录.  </p>
+<hr>
+<h4>PYTHONPATH变量</h4>
+<p>作为环境变量,PYTHONPATH由装在一个列表里的许多目录组成.<br>
+PYTHONPATH变量的语法和shell变量PATH的一样.<br>
+在windows系统里,典型的PYTHONPATH如下:<br>
+<code>set PYTHONPATH=c:\python27\lib;</code><br>
+在UNIX系统,则如下:<br>
+<code>set PYTHONPATH=/usr/local/lib/python</code>  </p>
+<hr>
+<h4>命名空间和作用域</h4>
+<p>命名空间是包含了变量名称(键),和它们各自对应的对象(值)的字典.<br>
+一个python表达式可以访问局部和全局命名空间里的变量.<br>
+如果一个局部变量和一个全局变量重名,局部变量则会覆盖全局变量.<br>
+python会智能的猜测一个变量是局部还是全局变量,它假设任何在函数内赋值的变量都是局部的,因此,如果要给全局变量在一个函数里赋值,必须使用global关键字.<br>
+golbal varname 表达式告诉python 变量varname是一个全局变量,这样python就不会在局部变量里寻找这个变量了.  </p>
+<hr>
+<h4>dir()函数</h4>
+<p>dir()函数是一个排好序的字符串列表,内容是一个模块里定义过的名字.<br>
+返回的列表容纳了在一个模块里定义的所有模块,变量和函数.如下:  </p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#-*- coding: UTF-8 -*-</span>
+
+<span class="c1">#导入内置模块math</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="n">content</span>
+</pre></div>
+
+
+<p>示例结果为:  </p>
+<div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;__file__&#39;</span><span class="p">,</span> <span class="s1">&#39;__name__&#39;</span><span class="p">,</span> <span class="s1">&#39;acos&#39;</span><span class="p">,</span> <span class="s1">&#39;asin&#39;</span><span class="p">,</span> <span class="s1">&#39;atan&#39;</span><span class="p">,</span> 
+<span class="s1">&#39;atan2&#39;</span><span class="p">,</span> <span class="s1">&#39;ceil&#39;</span><span class="p">,</span> <span class="s1">&#39;cos&#39;</span><span class="p">,</span> <span class="s1">&#39;cosh&#39;</span><span class="p">,</span> <span class="s1">&#39;degrees&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;exp&#39;</span><span class="p">,</span> 
+<span class="s1">&#39;fabs&#39;</span><span class="p">,</span> <span class="s1">&#39;floor&#39;</span><span class="p">,</span> <span class="s1">&#39;fmod&#39;</span><span class="p">,</span> <span class="s1">&#39;frexp&#39;</span><span class="p">,</span> <span class="s1">&#39;hypot&#39;</span><span class="p">,</span> <span class="s1">&#39;ldexp&#39;</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span>
+<span class="s1">&#39;log10&#39;</span><span class="p">,</span> <span class="s1">&#39;modf&#39;</span><span class="p">,</span> <span class="s1">&#39;pi&#39;</span><span class="p">,</span> <span class="s1">&#39;pow&#39;</span><span class="p">,</span> <span class="s1">&#39;radians&#39;</span><span class="p">,</span> <span class="s1">&#39;sin&#39;</span><span class="p">,</span> <span class="s1">&#39;sinh&#39;</span><span class="p">,</span> 
+<span class="s1">&#39;sqrt&#39;</span><span class="p">,</span> <span class="s1">&#39;tan&#39;</span><span class="p">,</span> <span class="s1">&#39;tanh&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>这里,特殊字符串变量__name__指向模块的名字,__file__指向模块的导入文件名.  </p>
+<hr>
+<h4>globals()和locals()函数</h4>
+<p>根据调用地方不同,globals()和locals()函数可悲用来返回全局和局部命名空间的名字.<br>
+如果在函数内部调用locals(),返回的是所有能在该函数里访问的命名.<br>
+如果在函数内部调用globals(),返回的是所有在函数里能访问的全局命名.<br>
+两个函数的返回类型都是字典.所以名字能用keys()函数摘取.  </p>
+<hr>
+<h4>reload()函数</h4>
+<p>当一个模块被导入到一个脚本,模块顶层部分的代码只会被执行一次.<br>
+因此,如果你想重型执行模块里顶层部分的代码,可以使用reload()函数,该函数会重型导入之前导入过的模块.语法如下:<br>
+<code>reload(module_name)</code><br>
+在这里,module_name直接放模块的名字,而不是一个字符串形式.不要用" "包起来.  </p>
+<hr>
+<h4>Python中的包</h4>
+<p>包是一个分层次的文件目录结构,它定义了一个由模块及子包,和子包下的子包等组成的python的应用环境.<br>
+简单的说,包就是文件夹,但该文件夹下必须存在_<em>init_</em>.py文件,该文件的内容可以为空.<br>
+_<em>init_</em>.py文件用来标识当前文件夹是一个包.  </p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: 2016-06-08(三)</p>
+    <p>Category: <a href="./category/python.html">Python</a>
+ &ndash; Tags:
+      <a href="./tag/python.html">Python</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Ivesein. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Ivesein-Blogs - misc</title><link href="http://ivesein.github.io/" rel="alternate"></link><link href="http://ivesein.github.io/feeds/misc.atom.xml" rel="self"></link><id>http://ivesein.github.io/</id><updated>2016-06-07T00:00:00+08:00</updated><entry><title>Python元组</title><link href="http://ivesein.github.io/Python-tuple.html" rel="alternate"></link><published>2016-06-07T00:00:00+08:00</published><updated>2016-06-07T00:00:00+08:00</updated><author><name>Ivesein</name></author><id>tag:ivesein.github.io,2016-06-07:/Python-tuple.html</id><summary type="html">&lt;hr&gt;
+&lt;p&gt;Python的元组与列表相似,不同之处在于&lt;strong&gt;元组的元素不能修改&lt;/strong&gt;&lt;br&gt;
+元组的创建很简单,只需要在小括号()中添加元素,并且用','隔开即可.&lt;br&gt;
+&lt;strong&gt;&lt;code&gt;tup1 = (1, "Hello", 3.14, 'a' )&lt;/code&gt;&lt;/strong&gt;&lt;br&gt;
+创建空元组:&lt;code&gt;tup1 = ()&lt;/code&gt;&lt;br&gt;
+&lt;strong&gt;元组中只包含一个元素时,需要在元素后面添加逗号&lt;/strong&gt;:&lt;br&gt;
+&lt;code&gt;tup1 = (10,)&lt;/code&gt;&lt;br&gt;
+元组与列表,字符串类似,下标索引从0开始,可以进行截取,组合等.  &lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;访问元组的元素&lt;/h4&gt;
+&lt;p&gt;元组可使用下标索引访问元组中的值,也可以进行切片截取操作,如下:   &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;span class="n"&gt;tup1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;tup1&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;tup1&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;示例结果为:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2 …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;hr&gt;
+&lt;p&gt;Python的元组与列表相似,不同之处在于&lt;strong&gt;元组的元素不能修改&lt;/strong&gt;&lt;br&gt;
+元组的创建很简单,只需要在小括号()中添加元素,并且用','隔开即可.&lt;br&gt;
+&lt;strong&gt;&lt;code&gt;tup1 = (1, "Hello", 3.14, 'a' )&lt;/code&gt;&lt;/strong&gt;&lt;br&gt;
+创建空元组:&lt;code&gt;tup1 = ()&lt;/code&gt;&lt;br&gt;
+&lt;strong&gt;元组中只包含一个元素时,需要在元素后面添加逗号&lt;/strong&gt;:&lt;br&gt;
+&lt;code&gt;tup1 = (10,)&lt;/code&gt;&lt;br&gt;
+元组与列表,字符串类似,下标索引从0开始,可以进行截取,组合等.  &lt;/p&gt;
+&lt;hr&gt;
+&lt;h4&gt;访问元组的元素&lt;/h4&gt;
+&lt;p&gt;元组可使用下标索引访问元组中的值,也可以进行切片截取操作,如下:   &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;span class="n"&gt;tup1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;tup1&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;tup1&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;示例结果为:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;修改元组&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;元组中的元素值是不允许修改的&lt;/strong&gt;,但我们可以对元组进行连接组合,如下:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+&lt;span class="c1"&gt;#-*- coding: UTF-8 -*-&lt;/span&gt;
+
+&lt;span class="n"&gt;tup1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3.14&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;tup2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;abc&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;xyz&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c1"&gt;#以下修改元组元素的方法是非法的&lt;/span&gt;
+&lt;span class="c1"&gt;#tup1[0] = 100&lt;/span&gt;
+
+&lt;span class="c1"&gt;#创建一个新的元组&lt;/span&gt;
+&lt;span class="n"&gt;tup3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tup1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;tup2&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;tup3&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;示例结果为:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;3.14&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;abc&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;xyz&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;删除元组&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;元组中的元素是不允许删除的&lt;/strong&gt;,但我们可以使用del语句来删除整个元组,如下:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+
+&lt;span class="n"&gt;tup&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;tup&lt;/span&gt;
+&lt;span class="k"&gt;del&lt;/span&gt; &lt;span class="n"&gt;tup&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;tup&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;以上示例元组被删除后,输出变量会有异常信息,输出如下所示:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;Traceback&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;most&lt;/span&gt; &lt;span class="n"&gt;recent&lt;/span&gt; &lt;span class="n"&gt;call&lt;/span&gt; &lt;span class="n"&gt;last&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="nb"&gt;file&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;test.py&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;module&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;tup&lt;/span&gt;
+    &lt;span class="ne"&gt;NameError&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;tup&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;is&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;define&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;元组运算符&lt;/h4&gt;
+&lt;p&gt;与字符串和列表一样,元组之间可以使用 + 和 * 进行元组的元素组合和元素重复运算,运算后产生一个新的元组:  &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;python表达式&lt;/th&gt;
+&lt;th&gt;结果&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;len((1, 2, 3))&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;计算元组长度&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;(1, 2, 3)+(4, 5, 6)&lt;/td&gt;
+&lt;td&gt;(1, 2, 3, 4, 5, 6)&lt;/td&gt;
+&lt;td&gt;连接元组&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;("Hi!") * 3&lt;/td&gt;
+&lt;td&gt;("Hi!", "Hi!", "Hi!")&lt;/td&gt;
+&lt;td&gt;元组元素的重复&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3 in (1, 2, 3)&lt;/td&gt;
+&lt;td&gt;True&lt;/td&gt;
+&lt;td&gt;元素是否存在于元组&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;for x in (1, 2, 3):print x&lt;/td&gt;
+&lt;td&gt;1  2  3&lt;/td&gt;
+&lt;td&gt;迭代&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h4&gt;元组的索引,截取&lt;/h4&gt;
+&lt;p&gt;因为元组也是一个序列,所以我们可以访问元组中的指定位置的元素,也可以截取索引中的一段元素,如下:&lt;br&gt;
+&lt;code&gt;T = (1, 2, 3)&lt;/code&gt;  &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;python表达式&lt;/th&gt;
+&lt;th&gt;结果&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;T[2]&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;访问第三个元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T[-2]&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;反向访问,访问的倒数第二个元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;T[1:]&lt;/td&gt;
+&lt;td&gt;(2, 3)&lt;/td&gt;
+&lt;td&gt;截取元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;hr&gt;
+&lt;h4&gt;无关闭分隔符&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;任意无符号的对象,只要是以逗号隔开的,默认为元组&lt;/strong&gt;:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/usr/bin/python&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;abc&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;6.6j&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;value of x, y : &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;示例结果为:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;abc&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;18&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mf"&gt;6.6j&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;hello&lt;/span&gt;
+&lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h4&gt;元组内置函数&lt;/h4&gt;
+&lt;p&gt;pyhone元组包含了以下内置函数:  &lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;函数名&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cmp(tuple1,tuple2)&lt;/td&gt;
+&lt;td&gt;比较两个元组元素&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;len(tuple)&lt;/td&gt;
+&lt;td&gt;计算元组长度(元组内元素个数)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;max(tuple)&lt;/td&gt;
+&lt;td&gt;返回元组中元素最大值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;min(tuple)&lt;/td&gt;
+&lt;td&gt;返回元组中元素最小值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tuple(seq)&lt;/td&gt;
+&lt;td&gt;将列表转换为元组&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</content><category term="Python"></category></entry><entry><title>ubuntu打不开磁盘错误修复</title><link href="http://ivesein.github.io/ubuntu%E7%A3%81%E7%9B%98%E9%94%99%E8%AF%AF%E4%BF%AE%E5%A4%8D.html" rel="alternate"></link><published>2014-03-17T14:24:00+08:00</published><updated>2014-10-07T23:04:00+08:00</updated><author><name>Ivesein</name></author><id>tag:ivesein.github.io,2014-03-17:/ubuntu磁盘错误修复.html</id><summary type="html">&lt;p&gt;本文是关于如何解决windows系统安装ubuntu双系统后磁盘打不开的错误如何进行修复。&lt;/p&gt;</summary><content type="html">&lt;p&gt;错误:&lt;/p&gt;
+&lt;p&gt;Error mounting /dev/sda2 at /media/cici/5C70BCDA70BCBC58: Command-line `mount -t “ntfs” -o “uhelper=udisks2,nodev,nosuid,uid=1000,gid=1000,dmask=0077,fmask=0177” “/dev/sda2” “/media/cici/5C70BCDA70BCBC58”’ exited with non-zero exit status 14: Windows is hibernated, refused to mount.&lt;/p&gt;
+&lt;p&gt;Failed to mount ‘/dev/sda2’: Operation not permitted
+The NTFS partition is in an unsafe state. Please resume and shutdown
+Windows fully (no hibernation or fast restarting), or mount the volume
+read-only with the ‘ro’ mount option.
+​ &lt;br&gt;
+1 .打开终端：如果没有安装ntfs-3g就要安装：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install ntfs-3g
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2 .修复挂载错误的相应的分区如提示中的/dev/sda8，输入：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo ntfsfix /dev/sda8
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;3 .回车就可以了。 &lt;/p&gt;</content><category term="linux，ubuntu"></category></entry></feed>

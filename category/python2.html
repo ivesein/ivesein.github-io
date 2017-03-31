@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="../theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ivesein">
+  <meta name="description" content="Posts and writings by Ivesein">
+
+  <link href="http://ivesein.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs Atom" />
+
+<link href="http://ivesein.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs Python Category Atom" />
+
+  <title>
+    Ivesein-Blogs
+&ndash; Category: Python  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="..">
+        <img src="/images/my_logo.png" alt="logo">
+      </a>
+      <h2><a href="..">Ivesein</a></h2>
+      <p>C/C++  PYTHON  GIT/GITHUB.  Work @Linux</p>
+      <ul>
+        <li><a href="../pages/guan-yu-wo.html">关于我</a></li>
+        <li><a href="../pages/wo-de-xiang-mu.html">我的项目</a></li>
+	<li><a href="mailto:ivesein@outlook.com" target="_blank">EMAIL</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="..">Index</a> &brvbar; <a href="../archives.html">Archives</a>
+      &brvbar; <a href="http://ivesein.github.io/feeds/all.atom.xml">Atom</a>
+&gt; Category: Python
+&brvbar; <a href="http://ivesein.github.io/feeds/python.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="../Python.html">Python序列遍历的技巧</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<h6>遍历一个序列时,使用$enumerate()$函数可以同时得到索引和对应的值</h6>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;tic&#39;</span><span class="p">,</span> <span class="s1">&#39;tac&#39;</span><span class="p">,</span> <span class="s1">&#39;toe&#39;</span><span class="p">]):</span>
+<span class="o">...</span>     <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span>
+<span class="o">...</span>
+<span class="mi">0</span> <span class="n">tic</span>
+<span class="mi">1</span> <span class="n">tac</span>
+<span class="mi">2</span> <span class="n">toe</span>
+</pre></div>
+
+
+<hr>
+<h5>同时遍历两个或等多的序列,使用$zip()$函数可以成对读取元素</h5>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">questions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;quest&#39;</span><span class="p">,</span> <span class="s1">&#39;favorite color&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">answer</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lancelot&#39;</span><span class="p">,</span> <span class="s1">&#39;the holy grail&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">q</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">question</span><span class="p">,</span><span class="n">answer</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">print</span> <span class="s2">&quot;What is your {0}?  It is …</span></pre></div>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="../Python-class.html">Python面向对象</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<p>Python从设计之处就已经是一门面向对象语言,所以在python中创建一个类和对象是很容易的.  </p>
+<hr>
+<h4>面向对象技术简介</h4>
+<ul>
+<li>类(Class):用来描述具有相同的属性和方法的对象的合集.它定义了该集合中每个对象所共有的属性和方法.对象是类的实例.</li>
+<li>类变量:类变量在真个该实例化的对象中是公用的.类变量定义在类中,且在函数体之外.类变量通常不作为实例变量使用.</li>
+<li>数据成员:类变量或者实例变量用于处理类及其实例对象的相关的数据.</li>
+<li>方法重写:如果从父类继承的方法不能满足子类的需求,可以对其进行改写,这个过程叫做方法的覆盖(override),也称作方法的重写.</li>
+<li>实例变量:定义在方法中的变量,只作用于当前实例的类.</li>
+<li>继承:即一个派生类(derived class)继承基类(base class)的字段和方法.继承页允许把一个派生类的对象作为一个基类对象对待.例如.有这样一个设计:一个Dog类型的对象派生自Animal类,这是模拟"是一个(is-a)"关系(例如,Dog是一个Animal).</li>
+<li>实例化:创建一个类的实例,类的具体对象.</li>
+<li>方法:类中定义的函数.</li>
+<li>对象:通过类定义的数据结构示例.对象包括两个数据成员 …</li></ul>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="../Python-正则表达式moeditor.html">Python正则表达式</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<p>正则表达式是一个特殊的字符序列，它能帮你检查一个字符串是否与某种模式匹配。<br>
+Python自1.5版本起增加了re模块，它提供Perl风格的正则表达式模式。<br>
+re模块使Python语言拥有全部的正则表达式功能。<br>
+compile函数根据一个模式字符串和可选的标志参数生成一个正则表达式对象，该对象拥有一系列方法用于正则表达式匹配和替换。<br>
+re模块页提供了与这些方法功能完全一至的函数，这些函数使用一个模式字符串作为它们的第一个参数。  </p>
+<hr>
+<h4>re.match函数</h4>
+<p>re.match尝试从字符串的起始位置匹配一个模式，如果不是起始位置匹配成功的话，match()就返回none<br>
+函数语法：<code>re.match(pattern,string,flags = 0)</code><br>
+函数参数说明：<br>
+pattern ：匹配的正则表达式<br>
+string：要匹配的字符串<br>
+flags：标志位<br>
+匹配成功re.match方法返回一个匹配的对象，否则返回None。<br>
+我们可以使用group（num）或groups（）匹配对象函数来获取匹配表达式<br>
+示例1:  </p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#-*- coding: UTF-8 -*-</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="k">print</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s1">&#39;www …</span></pre></div>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="../Python-I/O.html">Python文件 I/O</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<h4>读取键盘输入</h4>
+<p>Python提供了两个内置函数从标准输入读入一行文本,默认的标准输入是键盘.<br>
+    * raw_input
+    * input</p>
+<h5>raw_input函数</h5>
+<p>raw_input()函数从标准输入读取一行,并返回一个字符串(会去掉结尾的换行符).  </p>
+<h5>input函数</h5>
+<p>input()函数和raw_input()函数基本相似,但是input可以接收一个python表达式为输入,并将运算结果返回.  </p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#-*- coidng: UTF-8 -*-</span>
+
+<span class="nb">str</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入: &quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;你输入的内容是: &quot;</span><span class="p">,</span> <span class="nb">str</span> 
+</pre></div>
+
+
+<p>这回产生如下的对应输入的结果:  </p>
+<div class="highlight"><pre><span></span><span class="err">请输入</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">5</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
+<span class="err">你输入的内容是</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">]</span>
+</pre></div>
+
+
+<p><strong>raw_input和input的区别在于,raw_input读到什么返回什么;而input会对读到的内容里的表达式做运算再返回</strong>.</p>
+<hr>
+<h4>打开和关闭文件操作</h4>
+<p>python提供了必要的函数和方法进行默认情况下的文件基本操作.你可以使用file对象做大部分的文件操作.  </p>
+<h5>open …</h5>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="../Python-Function.html">Python 函数</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<p>函数是组织好的,可重复使用的,用来实现单一或相关功能的代码段.<br>
+函数能提高应用的模块性,和代码的重复利用率.<br>
+Python提供了很多内建函数,比如print().你也可以自己创建函数,这被叫做自定义函数.  </p>
+<hr>
+<h4>定义一个函数</h4>
+<p>你可以定义一个有自己想要的功能的函数,以下是简单的规则:<br>
+<em> 函数的代码块以<strong> def </strong>关键字开头,后接函数标识符名称和园括号().
+</em> 任何传入参数和自变量必须放在园括号中间,园括号之间可以用于定义参数.
+<em> 函数的第一行语句可以选择性的使用文档字符串--用于存放函数说明.
+</em> 函数内容以冒号起始,并且缩进.
+* <strong>return [表达式]</strong> 结束函数,选择性的返回一个值给调用方.不带表达式的return相当于返回None.</p>
+<hr>
+<h4>自定义函数的语法</h4>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">functionname</span><span class="p">(</span> <span class="n">parameters</span><span class="p">):</span>
+    <span class="s2">&quot;函数_文档字符串&quot;</span>
+    <span class="n">function_suite</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">expression</span><span class="p">]</span>
+</pre></div>
+
+
+<p>默认情况下,参数值和参数名称是按函数声明中定义的顺序匹配起来的.  </p>
+<h4>实例</h4>
+<p>以下为一个简单的python函数,它将一个字符串作为传入参数,再打印到标准显示设备上.  </p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">printme</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="s2">&quot;打印传入的字符串到标准显示设备上&quot;</span>
+    <span class="k">print</span> <span class="nb">str</span>
+    <span class="k">return</span>
+</pre></div>
+
+
+<hr>
+<h4>函数调用</h4>
+<p>定义一个函数只给了函数一个名称,制定了函数包含的参数 …</p>
+  </div>
+</article>
+
+<footer>
+<meta charset="utf-8"/>
+<div id="paginator">
+<a href="../category/python3.html" class="button_accent">下一页  &rarr;</a>
+
+<a href="../category/python.html" class="button_accent">&larr;上一页</a>
+</div>
+</footer>
+
+    <div id="ending_message">
+      <p>&copy; Ivesein. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>

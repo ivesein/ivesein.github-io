@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ivesein">
+  <meta name="description" content="Posts and writings by Ivesein">
+
+  <link href="http://ivesein.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs Atom" />
+
+<meta name="keywords" content="Python">
+
+  <title>
+    Ivesein-Blogs
+&ndash; Python 函数  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href=".">
+        <img src="/images/my_logo.png" alt="logo">
+      </a>
+      <h2><a href=".">Ivesein</a></h2>
+      <p>C/C++  PYTHON  GIT/GITHUB.  Work @Linux</p>
+      <ul>
+        <li><a href="./pages/guan-yu-wo.html">关于我</a></li>
+        <li><a href="./pages/wo-de-xiang-mu.html">我的项目</a></li>
+	<li><a href="mailto:ivesein@outlook.com" target="_blank">EMAIL</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
+      &brvbar; <a href="http://ivesein.github.io/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="./Python-Function.html">Python 函数</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<p>函数是组织好的,可重复使用的,用来实现单一或相关功能的代码段.<br>
+函数能提高应用的模块性,和代码的重复利用率.<br>
+Python提供了很多内建函数,比如print().你也可以自己创建函数,这被叫做自定义函数.  </p>
+<hr>
+<h4>定义一个函数</h4>
+<p>你可以定义一个有自己想要的功能的函数,以下是简单的规则:<br>
+<em> 函数的代码块以<strong> def </strong>关键字开头,后接函数标识符名称和园括号().
+</em> 任何传入参数和自变量必须放在园括号中间,园括号之间可以用于定义参数.
+<em> 函数的第一行语句可以选择性的使用文档字符串--用于存放函数说明.
+</em> 函数内容以冒号起始,并且缩进.
+* <strong>return [表达式]</strong> 结束函数,选择性的返回一个值给调用方.不带表达式的return相当于返回None.</p>
+<hr>
+<h4>自定义函数的语法</h4>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">functionname</span><span class="p">(</span> <span class="n">parameters</span><span class="p">):</span>
+    <span class="s2">&quot;函数_文档字符串&quot;</span>
+    <span class="n">function_suite</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">expression</span><span class="p">]</span>
+</pre></div>
+
+
+<p>默认情况下,参数值和参数名称是按函数声明中定义的顺序匹配起来的.  </p>
+<h4>实例</h4>
+<p>以下为一个简单的python函数,它将一个字符串作为传入参数,再打印到标准显示设备上.  </p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">printme</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="s2">&quot;打印传入的字符串到标准显示设备上&quot;</span>
+    <span class="k">print</span> <span class="nb">str</span>
+    <span class="k">return</span>
+</pre></div>
+
+
+<hr>
+<h4>函数调用</h4>
+<p>定义一个函数只给了函数一个名称,制定了函数包含的参数,和代码快结构.<br>
+这个函数的基本结构完成以后末,可以通过另一个函数调用执行,也可以直接从Python提示符执行.<br>
+如下示例调用了printme()函数:  </p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#-*- coding: UTF-8 -*-</span>
+
+<span class="c1">#定义函数</span>
+<span class="k">def</span> <span class="nf">printme</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="s2">&quot;打印任何传入的字符串&quot;</span>
+    <span class="k">print</span> <span class="nb">str</span>
+    <span class="k">return</span>
+
+<span class="c1">#调用函数</span>
+<span class="n">printme</span><span class="p">(</span><span class="s2">&quot;我要调用用户自定义函数&quot;</span><span class="p">)</span>
+<span class="n">printme</span><span class="p">(</span><span class="s2">&quot;再次调用这个函数&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>示例结果为:  </p>
+<div class="highlight"><pre><span></span><span class="err">我要调用用户自定义函数</span>
+<span class="err">再次调用这个函数</span>
+</pre></div>
+
+
+<hr>
+<h4>参数传递</h4>
+<p>在python中,类型属于对象,变量是没有类型的:  </p>
+<div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;abcd&quot;</span>
+</pre></div>
+
+
+<p>以上代码中,[1, 2, 3]是List类型的,"abcd"是String类型的,而变量a是没有类型的,她仅仅是一个对象的引用(一个指针),可以使List类型对象,也可以指向String类型对象.  </p>
+<hr>
+<h4>可更改(mutable)和不可更改(immutable)对象</h4>
+<p>在python中,string,tuples和numbers是不可更改的对象,而list,dict等则是可以修改的对象.<br>
+<em> <strong>不可变类型</strong>:变量赋值 a=5 后再赋值 a=10,这里实际是新生成一个int对象10,再让a指向它,而5被丢弃,不是改变a的值,相当于生成了a.<br>
+</em> <strong>可变类型</strong>:变量赋值 la=[1,2,3,4]后再赋值 la=[2]=5 则是将list la的第二个元素值更改,本身la没有改动,只是其内部的一部分值被修改了.  </p>
+<h5>Pyhton函数的参数传递:</h5>
+<ul>
+<li><strong>不可变类型</strong>:类似c++的值传递,如整数,字符串,元组.比如fun(a) ,传递的只是a的值,没有影响a对象本身.比如在 fun(a) 内部修改a的值,只是修改另一个复制的对象,不会影响a本身.  </li>
+<li><strong>可变类型</strong>:类似c++的引用传递,如列表,字典.比如 fun(la) 是将la真正的值传过取,修改后fun外部的la也会受影响.  </li>
+</ul>
+<p>python中一切都是对象,严格意义我们不能说值传递还是引用传递,我们应该说传不可变对象和传可变对象.  </p>
+<h5>python传不可变对象实例:</h5>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#-*- coding: UTF-8 -*-</span>
+
+<span class="k">def</span> <span class="nf">ChangeInt</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">ChangeInt</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">b</span>           <span class="c1"># 结果是2</span>
+</pre></div>
+
+
+<p>示例中的int对象2,指向它的变量b,在传递给ChangeInt函数时,按传值的方式赋值了变量b,a和b都指向了同一个int对象,在a=10时,则新生成一个int对象10,并让a指向它.  </p>
+<h5>python传可变对象实例</h5>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#-*- coding: UTF-8 -*-</span>
+
+<span class="c1">#定义函数</span>
+<span class="k">def</span> <span class="nf">changeme</span><span class="p">(</span><span class="n">mylist</span><span class="p">):</span>
+    <span class="s2">&quot;修改传入的列表&quot;</span>
+    <span class="n">mylist</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+    <span class="k">print</span> <span class="s2">&quot;函数内取值: &quot;</span><span class="p">,</span> <span class="n">mylist</span>
+    <span class="k">return</span>
+<span class="c1">#调用changme()函数</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
+<span class="n">changme</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;函数外取值: &quot;</span><span class="p">,</span> <span class="n">mylist</span>
+</pre></div>
+
+
+<p>示例中传入函数的和在末尾添加新内容的对象用的是同一个引用,结果为下:  </p>
+<div class="highlight"><pre><span></span><span class="err">函数内取值</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
+<span class="err">函数外取值</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span>
+</pre></div>
+
+
+<hr>
+<h4>函数的参数</h4>
+<p>以下是调用函数时可使用的正式参数类型:<br>
+    1. 必备参数
+    2. 关键字参数
+    3. 默认参数
+    4. 不定长参数</p>
+<h5>1.必备参数</h5>
+<p>必备参数以正确的顺序传入函数.调用时的数量必须和声明时的一样.<br>
+调用printme()函数,你必须传入一个参数,否则会出现语法错误.  </p>
+<h5>2.关键字参数</h5>
+<p>关键字参数和函数调用紧密,函数调用使用关键字参数来确定传入的参数.<br>
+使用关键字参数允许函数调用参数的顺序与声明时不一致,因为python解释器能够用参数名匹配参数值.<br>
+以下示例在pringme()函数调用时使用参数名:  </p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">printme</span><span class="p">(</span><span class="nb">str</span><span class="p">):</span>
+    <span class="k">print</span> <span class="nb">str</span>
+    <span class="k">return</span>
+
+<span class="n">printme</span><span class="p">(</span><span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;my string&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>示例结果为:<br>
+<code>my string</code><br>
+<strong>关键字参数的传递顺序并不重要</strong>  </p>
+<h5>3.缺省参数</h5>
+<p>调用函数时,缺省参数的值如果没有传入,则被认为是默认值,下例会打印默认的age,如果age没有被传入:  </p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">printinfo</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">20</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s2">&quot;name: &quot;</span><span class="p">,</span> <span class="n">name</span>
+    <span class="k">print</span> <span class="s2">&quot;age: &quot;</span><span class="p">,</span> <span class="n">age</span>
+    <span class="k">return</span>
+
+<span class="n">printinfo</span><span class="p">(</span><span class="n">age</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;jack&quot;</span><span class="p">)</span>
+<span class="n">printinfo</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;jack&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>示例结果为:  </p>
+<div class="highlight"><pre><span></span><span class="n">name</span><span class="p">:</span><span class="n">jack</span>
+<span class="n">age</span><span class="p">:</span><span class="mi">50</span>
+<span class="n">name</span><span class="p">:</span><span class="n">jack</span>
+<span class="n">age</span><span class="o">=</span><span class="mi">20</span>
+</pre></div>
+
+
+<h5>4.不定长参数</h5>
+<p>有时你可能需要一个函数能处理闭当初声明时更多的参数.这些参数叫做不定长参数,和上述2中参数不同,声明时不会命名.基本语法如下:  </p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">functionname</span><span class="p">([</span><span class="n">formal_args</span><span class="p">],</span> <span class="o">*</span><span class="n">var_args_tuple</span><span class="p">):</span>
+    <span class="n">function_suite</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">expression</span><span class="p">]</span>
+</pre></div>
+
+
+<p>加了星号(*)的变量名会存放所有未命名的变量参数.选择不多传参数也可.如下示例:  </p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">printinfo</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="o">*</span><span class="n">valtuple</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s2">&quot;输出: &quot;</span>
+    <span class="k">print</span> <span class="n">arg1</span>
+    <span class="k">for</span> <span class="n">var</span> <span class="ow">in</span> <span class="n">vartuple</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">var</span>
+    <span class="k">return</span>
+
+<span class="n">printinfo</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">printinfo</span><span class="p">(</span><span class="mi">70</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">90</span><span class="p">)</span>
+</pre></div>
+
+
+<p>示例结果为:  </p>
+<div class="highlight"><pre><span></span><span class="err">输出</span><span class="p">:</span>
+<span class="mi">10</span>
+<span class="err">输出</span><span class="p">:</span>
+<span class="mi">70</span>
+<span class="mi">80</span>
+<span class="mi">90</span>
+</pre></div>
+
+
+<hr>
+<h4>匿名函数</h4>
+<p>python使用lambda来创建匿名函数.
+    * lambda只是一个表达式,函数体闭def简单很多.
+    * lambda的主题是一个表达式,而不是一个代码块.仅仅能在lambda表达式中封装有限的逻辑进去.
+    * lambda函数拥有自己的命名空间,且不能访问自有参数列表之外或全局命名空间的参数.
+    * 虽然lambda函数看起来只能写一行,却不等同于c或c++的内敛函数,后者的目的是调用小函数时不占用栈和内存从而增加运行效率.  </p>
+<h5>匿名函数语法</h5>
+<p>lambda函数的语法只包含一个语句,如下:<br>
+<code>lamda [arg1 [,arg2,....argn]]:expression</code><br>
+如下示例:  </p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#-*- coding: UTF-8 -*-</span>
+
+<span class="nb">sum</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">arg1</span><span class="p">,</span><span class="n">arg2</span><span class="p">:</span><span class="n">arg1</span><span class="o">+</span><span class="n">arg2</span>
+
+<span class="k">print</span> <span class="s2">&quot;相加后的结果: &quot;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;相加后的结果: &quot;</span><span class="p">,</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> 
+</pre></div>
+
+
+<p>示例结果为:  </p>
+<div class="highlight"><pre><span></span><span class="err">相加后的结果</span><span class="p">:</span> <span class="mi">30</span>
+<span class="err">相加后的结果</span><span class="p">:</span> <span class="mi">40</span>
+</pre></div>
+
+
+<hr>
+<h4>return语句</h4>
+<p>return [表达式] 退出函数,选择性的向调用方返一个表达式.不带参数值的return语句返回None.  </p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#-*- coding: UTF-8 -*-</span>
+
+<span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="n">arg2</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">arg1</span> <span class="o">+</span> <span class="n">arg2</span>
+    <span class="k">print</span> <span class="s2">&quot;函数内 : &quot;</span><span class="p">,</span> <span class="n">total</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+
+
+<p>示例结果为:  </p>
+<div class="highlight"><pre><span></span><span class="err">函数内</span> <span class="p">:</span> <span class="mi">30</span>
+</pre></div>
+
+
+<hr>
+<h4>变量作用域</h4>
+<p>一个程序的所有的变量并不是在哪个位置都可以访问的.访问权限决定这个变量是在哪里赋值的.<br>
+变量的作用域决定了在哪一部分程序你可以访问哪个特定的变量.<br>
+两种最基本的变量作用域如下:<br>
+    1. 全局变量
+    2. 局部变量</p>
+<h5>全局变量和局部变量</h5>
+<p>定义在函数内部的变量拥有一个局部作用域,定义在函数外的变量拥有全局作用域.<br>
+局部变量只能在其被声明的函数内部访问,而全局变量可以在整个程序范围内访问.<br>
+调用函数时,所有在函数内声明的变量名称都将加入到作用域中.如下:  </p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#-*- coding: UTF-8 -*-</span>
+
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>    <span class="c1">#这是一个全局变量</span>
+<span class="k">def</span> <span class="nf">sum</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">arg1</span> <span class="o">+</span><span class="n">arg2</span>    <span class="c1"># total在这里是局部变量</span>
+    <span class="k">print</span> <span class="s2">&quot;函数内是局部变量: &quot;</span><span class="p">,</span><span class="n">total</span>
+    <span class="k">return</span> <span class="n">total</span>
+
+<span class="c1">#调用函数</span>
+<span class="nb">sum</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;函数外是全局变量: &quot;</span><span class="p">,</span> <span class="n">total</span>
+</pre></div>
+
+
+<p>示例结果为:  </p>
+<div class="highlight"><pre><span></span><span class="err">函数内是局部变量</span><span class="p">:</span> <span class="mi">30</span>
+<span class="err">函数外是全局变量</span><span class="p">:</span> <span class="mi">0</span>
+</pre></div>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: 2016-06-08(三)</p>
+    <p>Category: <a href="./category/python.html">Python</a>
+ &ndash; Tags:
+      <a href="./tag/python.html">Python</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Ivesein. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ivesein">
+  <meta name="description" content="Posts and writings by Ivesein">
+
+  <link href="http://ivesein.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs Atom" />
+
+<meta name="keywords" content="Python">
+
+  <title>
+    Ivesein-Blogs
+&ndash; Python模块threading--多线程控制和处理  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href=".">
+        <img src="/images/my_logo.png" alt="logo">
+      </a>
+      <h2><a href=".">Ivesein</a></h2>
+      <p>C/C++  PYTHON  GIT/GITHUB.  Work @Linux</p>
+      <ul>
+        <li><a href="./pages/guan-yu-wo.html">关于我</a></li>
+        <li><a href="./pages/wo-de-xiang-mu.html">我的项目</a></li>
+	<li><a href="mailto:ivesein@outlook.com" target="_blank">EMAIL</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
+      &brvbar; <a href="http://ivesein.github.io/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="./Python-module-threading.html">Python模块threading--多线程控制和处理</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<h4>threading.Thread</h4>
+<p>Thread是threading模块中非常重要的类之一.可以使用它来创建线程.<br>
+有两种方法来创建线程:<br>
+    * 一种是继承Thread类,重写它的run()方法.<br>
+    * 另一种是创建一个threading.Thread对象,在它的初始化函数(_<em>init_</em>())中将可调用对象作为参数传入.  </p>
+<h5>通过继承threading.Thread类来创建线程:</h5>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">class</span> <span class="nc">Counter</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">lock</span><span class="p">,</span><span class="n">threading</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;@summary: 初始化对象</span>
+<span class="sd">        @param lock:所对象</span>
+<span class="sd">        @param threadName:线程名称</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Counter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="n">threadName</span><span class="p">)</span>    <span class="c1"># 注意:一定要显示的调用父类的初始化函数</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">lock</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;@summary:重写父类run方法,在线程启动后执行该方法内的代码.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">global</span> <span class="n">count</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+            <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+        <span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+            <span class="n">Count</span><span class="p">(</span><span class="n">lock</span><span class="p">,</span> <span class="s2">&quot;thread-&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>       <span class="c1"># 确保线程都执行完毕</span>
+        <span class="k">print</span> <span class="n">count</span>
+</pre></div>
+
+
+<p>以上示例创建了一个Counter类,继承自threading.Thread.初始化函数接收两个参数,一个是锁对象lock,另一个是线程名threadName.<br>
+在Counter中,重写了继承自父类的run()方法,该方法将全局变量count从1加到10000.<br>
+接下来创建5个Counter对象,分别调用start()方法,最后打印count.<br>
+这里对run()方法和start()做以下说明:<br>
+    * run():继承自Thread,run()方法在线程开启后执行,可以把相关的逻辑写到run方法中.
+    * start():用于启动线程.</p>
+<h5>通过创建threading.Thread对象创建线程</h5>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">funcAdd</span><span class="p">():</span>
+    <span class="s1">&#39;@summary:将全局变量count从1加到10000&#39;</span>
+    <span class="k">global</span> <span class="n">count</span><span class="p">,</span> <span class="n">lock</span>
+    <span class="n">lock</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+        <span class="n">count</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">lock</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span> <span class="o">=</span> <span class="n">funcAdd</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(),</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Thread-&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>       <span class="c1"># 确保线程都执行完毕</span>
+<span class="k">print</span> <span class="n">count</span>
+</pre></div>
+
+
+<p>以上示例定义了一个funcAdd方法将全局变量count从1加到10000.然后把函数对象funcAdd作为参数传入Thread对象的构造函数创建5个Thread对象,再调用Thread对象的start()方法启动线程,执行funcAdd()方法.<br>
+<strong>这里着重介绍一下threading.Thread类的初始化函数原型:</strong><br>
+<strong><code>def __init__(self,gruop=None,target=None,name=None,args=(),kwargs={})</code></strong><br>
+    * 参数group是预留的,用于将来扩展;
+    * 参数target是一个可调用对象(也称为活动[activity]),在线程启动后执行;
+    * 参数name是线程的名字.默认为"Thread-N",N是一个数字;
+    * 参数args和kwargs分别标识调用target时的参数列表和关键字参数.</p>
+<h5>Thread.join([timeout])</h5>
+<p>调用Thread.join将会使主调线程堵塞,直到调用线程运行结束或超时.参数timeout是超时时间,如果未提供参数,那么主调线程将一直堵塞到被调线程结束.  </p>
+<h5>threading.RLock和threading.Lock</h5>
+<p>在threading模块中定义了两种锁:threading.RLock和threading.Lock.<br>
+这两种锁的主要区别是:RLock允许在同一线程中被多次acquire.而Lock却不允许这种情况.<br>
+<strong>注意:如果使用RLock,那么acquire和release必须成对出现,调用了几次acquire就必须要调用几次release才能真正释放所有占用的锁.</strong>  </p>
+<h4>threading.Condition</h4>
+<p>Condition可以理解为一种高级的锁,它提供了闭RLock和Lock更高级的功能,允许我们能够控制复杂的线程同步问题.<br>
+threading.Condition在内部维护一个锁对象(默认为RLock),可以在创建Condition对象的时候把锁对象作为参数传入.Condition也提供了acquire和release方法,其含义与锁的acquire和release方法一至,其实它只是简单的调用内部锁对象的对应的方法而已.<br>
+Condition还挺高了以下方法(<strong>特别注意:这些方法只有在占用了锁(acquier)之后才能调用,否则将会报RuntimeError异常.</strong>):<br>
+<em> Condition.wait([timeout]):wait方法释放内部所占用的锁,同时线程被挂起,直至接收到通知被唤醒或超时(如果提供了timeout参数的话).当先城北唤醒并重新占有锁的是哈,程序才会继续执行下去.
+</em> Condition.noitfy():唤醒一个挂起的线程(如果存在一个挂起的线程).注意,notify()方法不会释放所有占用的锁.
+<em> Condition.notify_all()
+</em> Condition.notifyAll():唤醒所有挂起的线程(如果存在挂起的线程).注意,这些方法不会释放所有占用的锁</p>
+<hr>
+<h4>下面写一个捉迷藏的游戏来进一步介绍threading.Condition的基本十一用.</h4>
+<p>游戏由两个人来玩,一个藏(Hider),一个找(Seeker).<br>
+游戏规则:<br>
+    1. 游戏开始之后,由Seeker先把眼睛蒙上,然后通知Hider;
+    2. Hider接到通知后就找地方藏起来,藏好后就通知Seeker自己藏好了,可以开始找了;
+    3. Seeker得到通知后就开始找.</p>
+<p>Hider和Seeker都是独立的个体,在程序中用两个独立的线程来表示,在游戏过程中,两者之间的行为有一定时序关系,我们通过Condition来控制这种时序关系.  </p>
+<div class="highlight"><pre><span></span><span class="c1">#file hs.py</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="c1">#定义Hider类</span>
+<span class="k">class</span> <span class="nc">Hider</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cond</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Hider</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span> <span class="o">=</span> <span class="n">cond</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>       <span class="c1">#睡眠2秒,确保Seeker先运行,先蒙好眼睛</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>      <span class="c1"># 3.Hider获取线程锁,接到Seeker蒙好眼睛的通知后调用Condition.notify()方法唤醒Seeker第一步完成后挂起的锁.然后开始藏起来</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;:了我已经藏好了,快来找我吧!&#39;</span>     <span class="c1"># 4.Hider藏好后通知Seeker自己藏好了,可以开始找了.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>        <span class="c1"># 5.通知完后待要Congdition.wait()方法释放内部占用锁,并挂起线程.</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>      <span class="c1"># 9.Hider被找到后唤醒线程,然后抱怨被找到太快</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 唉,这么快就被你找到了.  --!&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>        <span class="c1"># 10.抱怨完后释放锁,挂起线程.</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>     <span class="c1"># 12. 游戏结束,Hider释放线程锁</span>
+
+<span class="k">class</span> <span class="nc">Seeker</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">cond</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Seeker</span><span class="p">,</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span> <span class="o">=</span> <span class="n">cond</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span>  <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 我已经蒙好眼睛了,你快藏好,我要来找你了!&#39;</span>     <span class="c1"># 1.Seeker获取线程锁,蒙好自己的眼睛并通知Hider藏起来...</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>        <span class="c1"># 2.Seeker通知完后调用Condition.wait()方法释放内部占用锁,并将线程挂起.</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>      <span class="c1"># 6.Seeker得知Hider藏好后唤醒线程开始找..</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;:我开始找了哦...&#39;</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 藏哪去了?...&#39;</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 我找到你了哦... 哈哈哈!&#39;</span>    <span class="c1"># 7.一段时间后,Seeker找到了Hider</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>    <span class="c1"># 8.Seeker释放内部占用锁,挂起线程</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">notify</span><span class="p">()</span>
+        <span class="k">print</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span> <span class="s1">&#39;: 哈哈,我赢了...!!&#39;</span>   <span class="c1"># 11.最后Seeker结果线程,开心的宣布自己赢了.并最终释放线程锁.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cond</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+
+<span class="n">cond</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Condition</span><span class="p">()</span>    <span class="c1"># 创建threading.Condition对象</span>
+
+<span class="n">seeker</span> <span class="o">=</span> <span class="n">Seeker</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="s1">&#39;seeker&#39;</span><span class="p">)</span>     <span class="c1">#创建seeker玩家对象</span>
+<span class="n">hider</span> <span class="o">=</span> <span class="n">Hider</span><span class="p">(</span><span class="n">cond</span><span class="p">,</span> <span class="s1">&#39;hider&#39;</span><span class="p">)</span>        <span class="c1">#创建Hider玩家对象</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__mian__&#39;</span><span class="p">:</span>
+    <span class="n">seeker</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">hider</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+
+
+<p>示例结果为:  </p>
+<div class="highlight"><pre><span></span><span class="n">ivesein</span><span class="nd">@ivesein</span><span class="o">-</span><span class="n">UbuntuPC</span><span class="p">:</span><span class="o">~</span><span class="err">$</span> <span class="n">python</span> <span class="n">hs</span><span class="o">.</span><span class="n">py</span> 
+<span class="n">seeker</span><span class="p">:</span> <span class="err">我已经蒙好眼睛了</span><span class="p">,</span><span class="err">你快藏好!我要来找你了</span>
+<span class="n">hider</span><span class="p">:</span> <span class="err">我已经藏好了</span><span class="p">,</span><span class="err">快来找我吧</span>
+<span class="n">seeker</span><span class="p">:</span> <span class="err">我要开始找你了</span><span class="o">...</span>
+<span class="n">seeker</span><span class="p">:</span> <span class="err">藏哪去了?</span><span class="o">...</span>
+<span class="n">seeker</span><span class="p">:</span> <span class="err">我找到你了哦</span><span class="o">..</span><span class="err">哈哈哈!</span>
+<span class="n">hider</span><span class="p">:</span> <span class="err">唉</span><span class="p">,</span><span class="err">这么快就被你找到了</span> <span class="o">--</span><span class="err">!</span>
+<span class="n">seeker</span><span class="p">:</span> <span class="err">我赢了</span>
+</pre></div>
+
+
+<hr>
+<h4>threading.Timer</h4>
+<p>threading.Timer是threading.Thread的一个子类,可以在指定时间间隔后执行某个操作,下面是python手册给的一个例子:  </p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="k">print</span> <span class="s2">&quot;hello world&quot;</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">hello</span><span class="p">)</span>
+<span class="n">t</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>  <span class="c1"># 3秒后执行hello函数.</span>
+</pre></div>
+
+
+<hr>
+<h4>一些零碎知识点</h4>
+<h5>if <strong>name</strong> == '<strong>main</strong>'语句</h5>
+<p>该语句块的内容只有当该文件直接执行时才会执行,当该文件是被其他问加import导入执行时是不会执行的.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: 2016-06-15(三)</p>
+    <p>Category: <a href="./category/python.html">Python</a>
+ &ndash; Tags:
+      <a href="./tag/python.html">Python</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Ivesein. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>

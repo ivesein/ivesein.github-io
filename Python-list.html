@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ivesein">
+  <meta name="description" content="Posts and writings by Ivesein">
+
+  <link href="http://ivesein.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs Atom" />
+
+<meta name="keywords" content="Python">
+
+  <title>
+    Ivesein-Blogs
+&ndash; Python 列表  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href=".">
+        <img src="/images/my_logo.png" alt="logo">
+      </a>
+      <h2><a href=".">Ivesein</a></h2>
+      <p>C/C++  PYTHON  GIT/GITHUB.  Work @Linux</p>
+      <ul>
+        <li><a href="./pages/guan-yu-wo.html">关于我</a></li>
+        <li><a href="./pages/wo-de-xiang-mu.html">我的项目</a></li>
+	<li><a href="mailto:ivesein@outlook.com" target="_blank">EMAIL</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
+      &brvbar; <a href="http://ivesein.github.io/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="./Python-list.html">Python 列表</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<p>序列是python中最基本的数据结构:list = [元素1,元素2,元素3,...].<br>
+序列中每个元素都分配以个数字标记它的位置或索引,第一个索引是0,第二个是1,依次类推.<br>
+列表的数据项不需要具有相同的类型,创建一个列表,只需要把逗号分隔的不同的数据项用放括号括起来即可:<br>
+<code>list1 = [10, "hello", 3.14, 'a']</code>  </p>
+<hr>
+<h4>访问列表中的值</h4>
+<p>使用下标索引来访问列表中的值;同样,序列也支持切片截取,加,乘等操作:  </p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">list1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+
+<p>以上示例结果为:  </p>
+<div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+
+<hr>
+<h4>更新列表</h4>
+<p>你可以对列表的数据项进行修改或更新,你也可以使用append()方法来添加列表项,也可以使用del方法,删除列表项元素:  </p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#修改列表元素</span>
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">list1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">list1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="k">print</span> <span class="n">list1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="c1">#append()方法追加列表元素</span>
+<span class="n">list1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>  <span class="c1">#将元素7追加到列表末尾</span>
+<span class="k">print</span> <span class="n">list1</span>
+<span class="c1">#del 删除列表元素</span>
+<span class="k">del</span> <span class="n">list1</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>     <span class="c1">#删除列表中第四个元素hello</span>
+<span class="k">print</span> <span class="n">list1</span>
+</pre></div>
+
+
+<p>示例结果为:  </p>
+<div class="highlight"><pre><span></span><span class="mi">3</span>
+<span class="mi">6</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+</pre></div>
+
+
+<hr>
+<h4>列表运算符</h4>
+<p>列表对 + 和 * 的操作副与字符串相似: + 用于组合列表, * 用于重复列表元素  </p>
+<table>
+<thead>
+<tr>
+<th>python表达式</th>
+<th>结果</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>len([1, 2, 3])</td>
+<td>3</td>
+<td>计算列表长度</td>
+</tr>
+<tr>
+<td>[1, 2, 3]+[4, 5, 6]</td>
+<td>[1, 2, 3, 4, 5, 6]</td>
+<td>组合两个列表元素</td>
+</tr>
+<tr>
+<td>["Hi!"]*3</td>
+<td>["Hi!", "Hi!", "Hi!"]</td>
+<td>重复列表元素</td>
+</tr>
+<tr>
+<td>3 in [1, 2, 3]</td>
+<td>True</td>
+<td>元素是否存在于列表中</td>
+</tr>
+<tr>
+<td>for x in [1, 2 , 3]</td>
+<td>1   2   3</td>
+<td>迭代</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4>Python列表的函数&amp;方法</h4>
+<p>python包含以下函数:  </p>
+<table>
+<thead>
+<tr>
+<th align="left">函数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">cmp(list1,list2)</td>
+<td>比较两个列表的元素</td>
+</tr>
+<tr>
+<td align="left">len(list)</td>
+<td>列表长度,列表内包含元素个数</td>
+</tr>
+<tr>
+<td align="left">max(list)</td>
+<td>返回列表内元素的最大值</td>
+</tr>
+<tr>
+<td align="left">min(list)</td>
+<td>返回列表内元素的最小值</td>
+</tr>
+<tr>
+<td align="left">list(seq)</td>
+<td>将元组转换为列表</td>
+</tr>
+</tbody>
+</table>
+<p>python包含以下方法:  </p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list.append(obj)</td>
+<td>在列表末尾添加新的对象</td>
+</tr>
+<tr>
+<td>list.count(obj)</td>
+<td>统计某个元素在列表中出现的次数</td>
+</tr>
+<tr>
+<td>list.extend(seq)</td>
+<td>在列表的末尾一次性追加另一个列表中的多个值(用新列表扩展原来的列表)</td>
+</tr>
+<tr>
+<td>list.index(obj)</td>
+<td>从列表中找出某个值第一个匹配项的索引位置</td>
+</tr>
+<tr>
+<td>list.insert(index,obj)</td>
+<td>将对象插入列表</td>
+</tr>
+<tr>
+<td>list.pop(pop=list[-1])</td>
+<td>弹出列表中的一个元素(默认为最后一个),并返回该元素的值</td>
+</tr>
+<tr>
+<td>list.remove(obj)</td>
+<td>移除列表中某个值的第一个匹配项</td>
+</tr>
+<tr>
+<td>list.reverse()</td>
+<td>反向列表中的所有元素</td>
+</tr>
+<tr>
+<td>list.sort([func])</td>
+<td>对原列表进行排序</td>
+</tr>
+</tbody>
+</table>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: 2016-06-07(二)</p>
+    <p>Category: <a href="./category/python.html">Python</a>
+ &ndash; Tags:
+      <a href="./tag/python.html">Python</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Ivesein. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>

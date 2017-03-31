@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ivesein">
+  <meta name="description" content="Posts and writings by Ivesein">
+
+  <link href="http://ivesein.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs Atom" />
+
+<meta name="keywords" content="python">
+
+  <title>
+    Ivesein-Blogs
+&ndash; Python基本语法  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href=".">
+        <img src="/images/my_logo.png" alt="logo">
+      </a>
+      <h2><a href=".">Ivesein</a></h2>
+      <p>C/C++  PYTHON  GIT/GITHUB.  Work @Linux</p>
+      <ul>
+        <li><a href="./pages/guan-yu-wo.html">关于我</a></li>
+        <li><a href="./pages/wo-de-xiang-mu.html">我的项目</a></li>
+	<li><a href="mailto:ivesein@outlook.com" target="_blank">EMAIL</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
+      &brvbar; <a href="http://ivesein.github.io/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="./python-learning-notes1.html">Python基本语法</a></h1>
+  </div>
+  <div class="article_text">
+    <h4>Python标识符</h4>
+<p>在python里，标识符由字母、数字、下划线组成。</p>
+<p>在python中，所有标识符可以包括英文、数字以及下划线，<strong>但不能以数字开头</strong>。</p>
+<p>python中的标识符是<strong>区分大小写</strong>的。</p>
+<p>以下划线开头的标识符是有特殊意义的：</p>
+<ul>
+<li>以单下划线开头(_foo)的代表不能直接访问的类属性，需要通过类提供的接口访问，不能用
+  <code>from xxx import *</code>来导入</li>
+<li>以双下划线开头(__foo)的代表类的私有成员</li>
+<li>以双下划线开头和结尾(__foo__)的代表python里特殊方法专用的标识，如___init__()代表类的构造函数</li>
+</ul>
+<hr>
+<h4>Python保留字符</h4>
+<p>下面列表显示了python中的保留字符，<strong>这些保留字符不能用做常量或变量或者任何其他标识符名称</strong></p>
+<p>所有python的关键字只包含小写字母：</p>
+<table>
+<thead>
+<tr>
+<th align="center">and</th>
+<th align="center">exec</th>
+<th align="center">not</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">assert</td>
+<td align="center">finally</td>
+<td align="center">or</td>
+</tr>
+<tr>
+<td align="center">break</td>
+<td align="center">for</td>
+<td align="center">pass</td>
+</tr>
+<tr>
+<td align="center">class</td>
+<td align="center">from</td>
+<td align="center">print</td>
+</tr>
+<tr>
+<td align="center">continue</td>
+<td align="center">global</td>
+<td align="center">raise</td>
+</tr>
+<tr>
+<td align="center">def</td>
+<td align="center">if</td>
+<td align="center">return</td>
+</tr>
+<tr>
+<td align="center">del</td>
+<td align="center">improt</td>
+<td align="center">try</td>
+</tr>
+<tr>
+<td align="center">elif</td>
+<td align="center">in</td>
+<td align="center">while</td>
+</tr>
+<tr>
+<td align="center">else</td>
+<td align="center">is</td>
+<td align="center">with</td>
+</tr>
+<tr>
+<td align="center">except</td>
+<td align="center">lambda</td>
+<td align="center">yield</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4>行和缩进</h4>
+<p>Python与其他语言最大的区别就是，Python的代码块不使用打括号{}来控制类和函数以及其他逻辑判断。Python最具特色的就是用严格的缩进来控制代码块。</p>
+<p>缩进的空白数量是可变的，但是所有的代码块语句必须包含相同的缩进空白数量，这个必须严格执行。</p>
+<p>​   <strong>建议使用4个空格控制缩进</strong></p>
+<p>​   <strong>尽量避免使用制表符进行缩进</strong></p>
+<p>​   <strong>不要将制表符和空格混合使用</strong></p>
+<hr>
+<h4>多行语句</h4>
+<p>Python语句中一般以新行作为一条语句的结束符。</p>
+<p>有时为了代码美观可使用反斜杠( \ )将一条语句分为多行显示，如下所示：</p>
+<div class="highlight"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="n">item_one</span> <span class="o">+</span> \
+        <span class="n">item_two</span> <span class="o">+</span> \
+        <span class="n">item_three</span>
+</pre></div>
+
+
+<p>语句中包含[],{}或()就不需要使用多行连接符。如下所示：</p>
+<div class="highlight"><pre><span></span><span class="n">days</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Monday&#39;</span><span class="p">,</span> <span class="s1">&#39;Tuesday&#39;</span><span class="p">,</span> <span class="s1">&#39;Wednesday&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Thursday&#39;</span><span class="p">,</span> <span class="s1">&#39;Friday&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>ython可以在同一行中使用多条语句，语句之间使用分号( ; )分割：</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="p">;</span> <span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;runoob&#39;</span><span class="p">;</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr>
+<h4>Python引号</h4>
+<p>Python可以使用单引号( ' ' )、双引号( " " )、或三引号( ''' 或 """ )来标识字符串，引号的开始和结束必须是相同类型的。</p>
+<p>其中三引号可以由多行组成，编写多行文本的快捷语法，常用语文档字符串，在文件的特定地点，被当做注释：</p>
+<div class="highlight"><pre><span></span><span class="n">word</span> <span class="o">=</span> <span class="s1">&#39;word&#39;</span>
+<span class="n">sentence</span> <span class="o">=</span> <span class="s2">&quot;这是一个句子。&quot;</span>
+<span class="n">paragraph</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;&quot;这是一个段落，</span>
+<span class="s2">            包含了多条语句&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<hr>
+<h4>Python注释</h4>
+<p>Python中单行注释用#开头</p>
+<p>注释可以在语句或表达式行末</p>
+<p>多行注释使用三个单引号或三个双引号</p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#-*- coding: UTF-8 -*-</span>
+<span class="c1">#以上为单行注释</span>
+
+<span class="k">print</span> <span class="s2">&quot;Hello world&quot;</span>  <span class="c1">#行末注释</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">这是多行注释，使用单引号&#39;</span>
+<span class="sd">这是多行注释，使用单引号&#39;</span>
+<span class="sd">这是多行注释，使用单引号&#39;</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">这是多行注释，使用双引号&quot;</span>
+<span class="sd">这是多行注释，使用双引号&quot;</span>
+<span class="sd">这是多行注释，使用双引号&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<hr>
+<h4>Python空行</h4>
+<p>函数之间或类的方法之间使用空行分隔，表示一段新的代码的开始。类和函数入口之间也用一行空行分隔，以突出函数入口的开始。</p>
+<p>空行与代码缩进不同，空行并不是Python 语法的一部分。书写时不插入空行Python解释器运行也不会出现错误，但是空行的作用在于分隔两段不同功能或含义的代码，以便日后代码的维护或重构。</p>
+<p>记住：空行也是程序代码的一部分</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: 2016-06-04(六)</p>
+    <p>Category: <a href="./category/python.html">Python</a>
+ &ndash; Tags:
+      <a href="./tag/python.html">python</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Ivesein. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>

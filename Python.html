@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ivesein">
+  <meta name="description" content="Posts and writings by Ivesein">
+
+  <link href="http://ivesein.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs Atom" />
+
+<meta name="keywords" content="Python">
+
+  <title>
+    Ivesein-Blogs
+&ndash; Python序列遍历的技巧  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href=".">
+        <img src="/images/my_logo.png" alt="logo">
+      </a>
+      <h2><a href=".">Ivesein</a></h2>
+      <p>C/C++  PYTHON  GIT/GITHUB.  Work @Linux</p>
+      <ul>
+        <li><a href="./pages/guan-yu-wo.html">关于我</a></li>
+        <li><a href="./pages/wo-de-xiang-mu.html">我的项目</a></li>
+	<li><a href="mailto:ivesein@outlook.com" target="_blank">EMAIL</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
+      &brvbar; <a href="http://ivesein.github.io/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="./Python.html">Python序列遍历的技巧</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<h6>遍历一个序列时,使用$enumerate()$函数可以同时得到索引和对应的值</h6>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;tic&#39;</span><span class="p">,</span> <span class="s1">&#39;tac&#39;</span><span class="p">,</span> <span class="s1">&#39;toe&#39;</span><span class="p">]):</span>
+<span class="o">...</span>     <span class="k">print</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span>
+<span class="o">...</span>
+<span class="mi">0</span> <span class="n">tic</span>
+<span class="mi">1</span> <span class="n">tac</span>
+<span class="mi">2</span> <span class="n">toe</span>
+</pre></div>
+
+
+<hr>
+<h5>同时遍历两个或等多的序列,使用$zip()$函数可以成对读取元素</h5>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">questions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;quest&#39;</span><span class="p">,</span> <span class="s1">&#39;favorite color&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">answer</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;lancelot&#39;</span><span class="p">,</span> <span class="s1">&#39;the holy grail&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">q</span><span class="p">,</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">question</span><span class="p">,</span><span class="n">answer</span><span class="p">):</span>
+<span class="o">...</span>     <span class="k">print</span> <span class="s2">&quot;What is your {0}?  It is {1}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">q</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">What</span> <span class="ow">is</span> <span class="n">your</span> <span class="n">name</span><span class="err">?</span>  <span class="n">It</span> <span class="ow">is</span> <span class="n">lancelot</span><span class="o">.</span>
+<span class="n">What</span> <span class="ow">is</span> <span class="n">your</span> <span class="n">quest</span><span class="err">?</span>  <span class="n">It</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">holy</span> <span class="n">grail</span><span class="o">.</span>
+<span class="n">What</span> <span class="ow">is</span> <span class="n">your</span> <span class="n">favorite</span> <span class="n">color</span><span class="err">?</span>  <span class="n">It</span> <span class="ow">is</span> <span class="n">blue</span><span class="o">.</span>
+</pre></div>
+
+
+<hr>
+<h5>要反向遍历一个序列,首先正向生成这个序列,然后调用$reversed()$函数</h5>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)):</span>
+<span class="o">...</span>     <span class="n">pirnt</span> <span class="n">i</span>
+<span class="o">...</span>
+<span class="mi">9</span>
+<span class="mi">7</span>
+<span class="mi">5</span>
+<span class="mi">3</span>
+<span class="mi">1</span>
+</pre></div>
+
+
+<hr>
+<h5>要按排序顺序循环一个序列,使用$sorted()$函数,返回一个新的排序的列表,同时保留源不变</h5>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">basket</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;pear&#39;</span><span class="p">,</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;banana&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">basket</span><span class="p">)):</span>
+<span class="o">...</span>     <span class="k">print</span> <span class="n">f</span>
+<span class="o">...</span>
+<span class="n">apple</span>
+<span class="n">banana</span>
+<span class="n">orange</span>
+<span class="n">pear</span>
+</pre></div>
+
+
+<hr>
+<h5>遍历字典时,使用$iteritems()$方法可以同时得到键和对应的值</h5>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">knights</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;gallabad&#39;</span><span class="p">:</span> <span class="s1">&#39;the pure&#39;</span><span class="p">,</span> <span class="s1">&#39;robin&#39;</span><span class="p">:</span> <span class="s1">&#39;the brave&#39;</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">knights</span><span class="o">.</span><span class="n">iteritems</span><span class="p">():</span>
+<span class="o">...</span>     <span class="k">print</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span>
+<span class="o">...</span>
+<span class="n">gallahad</span> <span class="n">the</span> <span class="n">pure</span>
+<span class="n">robin</span> <span class="n">the</span> <span class="n">brave</span>
+</pre></div>
+
+
+<hr>
+<h5>若要在循环内部修改正在遍历的序列(例如复制某些元素),建议首先制作副本.在序列上循环不会隐式的创建副本,切片表示法使这尤其方便</h5>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;window&#39;</span><span class="p">,</span> <span class="s1">&#39;defenestrate&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span><span class="p">[:]:</span>
+<span class="o">...</span>     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">6</span><span class="p">:</span>
+<span class="o">...</span>         <span class="n">words</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">words</span>
+<span class="p">[</span><span class="s1">&#39;defenestrate&#39;</span><span class="p">,</span> <span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;window&#39;</span><span class="p">,</span> <span class="s1">&#39;defenestrate&#39;</span><span class="p">]</span>
+</pre></div>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: 2016-06-11(六)</p>
+    <p>Category: <a href="./category/python.html">Python</a>
+ &ndash; Tags:
+      <a href="./tag/python.html">Python</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Ivesein. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>

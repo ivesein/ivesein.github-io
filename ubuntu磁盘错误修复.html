@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ivesein">
+  <meta name="description" content="Posts and writings by Ivesein">
+
+  <link href="http://ivesein.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs Atom" />
+
+<meta name="keywords" content="linux，ubuntu">
+
+  <title>
+    Ivesein-Blogs
+&ndash; ubuntu打不开磁盘错误修复  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href=".">
+        <img src="/images/my_logo.png" alt="logo">
+      </a>
+      <h2><a href=".">Ivesein</a></h2>
+      <p>C/C++  PYTHON  GIT/GITHUB.  Work @Linux</p>
+      <ul>
+        <li><a href="./pages/guan-yu-wo.html">关于我</a></li>
+        <li><a href="./pages/wo-de-xiang-mu.html">我的项目</a></li>
+	<li><a href="mailto:ivesein@outlook.com" target="_blank">EMAIL</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
+      &brvbar; <a href="http://ivesein.github.io/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="./ubuntu磁盘错误修复.html">ubuntu打不开磁盘错误修复</a></h1>
+  </div>
+  <div class="article_text">
+    <p>错误:</p>
+<p>Error mounting /dev/sda2 at /media/cici/5C70BCDA70BCBC58: Command-line `mount -t “ntfs” -o “uhelper=udisks2,nodev,nosuid,uid=1000,gid=1000,dmask=0077,fmask=0177” “/dev/sda2” “/media/cici/5C70BCDA70BCBC58”’ exited with non-zero exit status 14: Windows is hibernated, refused to mount.</p>
+<p>Failed to mount ‘/dev/sda2’: Operation not permitted
+The NTFS partition is in an unsafe state. Please resume and shutdown
+Windows fully (no hibernation or fast restarting), or mount the volume
+read-only with the ‘ro’ mount option.
+​ <br>
+1 .打开终端：如果没有安装ntfs-3g就要安装：</p>
+<div class="highlight"><pre><span></span>sudo apt-get install ntfs-3g
+</pre></div>
+
+
+<p>2 .修复挂载错误的相应的分区如提示中的/dev/sda8，输入：</p>
+<div class="highlight"><pre><span></span>sudo ntfsfix /dev/sda8
+</pre></div>
+
+
+<p>3 .回车就可以了。 </p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: 2014-03-17(一)</p>
+    <p>Category: <a href="./category/misc.html">misc</a>
+ &ndash; Tags:
+      <a href="./tag/linuxubuntu.html">linux，ubuntu</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Ivesein. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>

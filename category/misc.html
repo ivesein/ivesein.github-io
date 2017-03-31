@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="../theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ivesein">
+  <meta name="description" content="Posts and writings by Ivesein">
+
+  <link href="http://ivesein.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs Atom" />
+
+<link href="http://ivesein.github.io/feeds/misc.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs misc Category Atom" />
+
+  <title>
+    Ivesein-Blogs
+&ndash; Category: misc  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="..">
+        <img src="/images/my_logo.png" alt="logo">
+      </a>
+      <h2><a href="..">Ivesein</a></h2>
+      <p>C/C++  PYTHON  GIT/GITHUB.  Work @Linux</p>
+      <ul>
+        <li><a href="../pages/guan-yu-wo.html">关于我</a></li>
+        <li><a href="../pages/wo-de-xiang-mu.html">我的项目</a></li>
+	<li><a href="mailto:ivesein@outlook.com" target="_blank">EMAIL</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="..">Index</a> &brvbar; <a href="../archives.html">Archives</a>
+      &brvbar; <a href="http://ivesein.github.io/feeds/all.atom.xml">Atom</a>
+&gt; Category: misc
+&brvbar; <a href="http://ivesein.github.io/feeds/misc.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="../Python-tuple.html">Python元组</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<p>Python的元组与列表相似,不同之处在于<strong>元组的元素不能修改</strong><br>
+元组的创建很简单,只需要在小括号()中添加元素,并且用','隔开即可.<br>
+<strong><code>tup1 = (1, "Hello", 3.14, 'a' )</code></strong><br>
+创建空元组:<code>tup1 = ()</code><br>
+<strong>元组中只包含一个元素时,需要在元素后面添加逗号</strong>:<br>
+<code>tup1 = (10,)</code><br>
+元组与列表,字符串类似,下标索引从0开始,可以进行截取,组合等.  </p>
+<hr>
+<h4>访问元组的元素</h4>
+<p>元组可使用下标索引访问元组中的值,也可以进行切片截取操作,如下:   </p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="n">tup1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">tup1</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="k">print</span> <span class="n">tup1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+
+<p>示例结果为:  </p>
+<div class="highlight"><pre><span></span><span class="mi">3</span>
+<span class="p">(</span><span class="mi">2 …</span></pre></div>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="../ubuntu磁盘错误修复.html">ubuntu打不开磁盘错误修复</a></h1>
+  </div>
+  <div class="article_text">
+    <p>本文是关于如何解决windows系统安装ubuntu双系统后磁盘打不开的错误如何进行修复。</p>
+  </div>
+</article>
+
+<footer>
+<meta charset="utf-8"/>
+<div id="paginator">
+
+</div>
+</footer>
+
+    <div id="ending_message">
+      <p>&copy; Ivesein. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>

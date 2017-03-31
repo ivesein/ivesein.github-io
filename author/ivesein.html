@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="../theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ivesein">
+  <meta name="description" content="Posts and writings by Ivesein">
+
+  <link href="http://ivesein.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs Atom" />
+
+
+  <title>
+    Ivesein-Blogs
+&ndash; Posts by: Ivesein  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="..">
+        <img src="/images/my_logo.png" alt="logo">
+      </a>
+      <h2><a href="..">Ivesein</a></h2>
+      <p>C/C++  PYTHON  GIT/GITHUB.  Work @Linux</p>
+      <ul>
+        <li><a href="../pages/guan-yu-wo.html">关于我</a></li>
+        <li><a href="../pages/wo-de-xiang-mu.html">我的项目</a></li>
+	<li><a href="mailto:ivesein@outlook.com" target="_blank">EMAIL</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="..">Index</a> &brvbar; <a href="../archives.html">Archives</a>
+      &brvbar; <a href="http://ivesein.github.io/feeds/all.atom.xml">Atom</a>
+&gt; Author: Ivesein
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="../github-pelican-blog.html">Github+Pelican搭建博客教程</a></h1>
+  </div>
+  <div class="article_text">
+    <h3>操作系统：Linux/ubuntu</h3>
+<h4>使用工具：</h4>
+<ol>
+<li>
+<p>Github Pages——Github为每位注册用户提供300M的站点空间。</p>
+</li>
+<li>
+<p>Pelican——基于Python的静态网页生成器。</p>
+</li>
+<li>
+<p>Python——pelican工具需要Python运行环境。</p>
+</li>
+<li>
+<p>Markdown——Markdown文本编辑器。</p>
+</li>
+<li>
+<p>其他——个人申请的域名、Google Analytics(谷歌站点数据检测分析工具)、Disqus(提供博客评论功能)、DNSPod(提供免费域名解析注册服务)等。</p>
+</li>
+</ol>
+<p>##### 最终效果：欢迎访问我的个人博客：http://ivesein.github.io/</p>
+<h4>一 、使用Github Pages创建个人博客页面</h4>
+<p>Git是一个开源的分布式版本控制系统，用以有效、高速的处理从很小到非常大的项目版本管理。GitHub可以托管各种git库的站点。通过GitHub Pages生成的静态站点，可以免费托管、自定义主题、并且自制网页界面。</p>
+<ol>
+<li>
+<p>首先注册Github账户：http://github.com/。</p>
+</li>
+<li>
+<p>登录Github账户，点击“Create a new …</p></li></ol>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="../Python_Output_Formatting.html">Python格式化输出</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<h4>格式化输出</h4>
+<p>目前遇到过两种从输出值的方法:<strong>表达式语句</strong>和<strong>print</strong>语句.(第三种方式时使用文件对象的write()方法;标准输出文件可以引用<strong>sys.stdout</strong>,详细内容见库参考手册)  </p>
+<p>有两种方法来设置输出格式:<br>
+<em> 第一种是自己做所有的字符串处理;使用字符串切片和连接操作,你可以创建任何你想要的布局.字符串类型有一些方法,用于执行将字符串填充到指定列宽度的又用操作.
+</em> 第二种方法是使用str.format()方法.</p>
+<p><strong>string</strong>模块包含一个<strong>Template</strong>类,提供另外一种向字符串带入值的方法.
+如何将值转换为字符串?Python提供了将任何值转换为字符串的方法:将值传递给repr()和str()函数.  </p>
+<h5>Python提供填充空格使字符串在给定的列对其的方法</h5>
+<ul>
+<li>str.rjust():在左侧填充空格使字符串在给定宽度的列右对齐</li>
+<li>str.center():在左右两侧填充空格使字符串在给定宽度的列居中对其</li>
+<li>str.ljust():左对齐</li>
+</ul>
+<p>这些方法不会输出任何内容,它们值返回新的字符串.如果输入的字符串太长,它们不会截断字符串,而是保持原样返回;这会使列的格式变得混乱,但是通常好于另外一种选择,那可能是一个错误的值.(如果想要截断 …</p>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="../Python-module-threading.html">Python模块threading--多线程控制和处理</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<h4>threading.Thread</h4>
+<p>Thread是threading模块中非常重要的类之一.可以使用它来创建线程.<br>
+有两种方法来创建线程:<br>
+    * 一种是继承Thread类,重写它的run()方法.<br>
+    * 另一种是创建一个threading.Thread对象,在它的初始化函数(_<em>init_</em>())中将可调用对象作为参数传入.  </p>
+<h5>通过继承threading.Thread类来创建线程:</h5>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">class</span> <span class="nc">Counter</span><span class="p">(</span><span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">lock</span><span class="p">,</span><span class="n">threading</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;@summary: 初始化对象</span>
+<span class="sd">        @param lock:所对象</span>
+<span class="sd">        @param threadName:线程名称</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Counter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="n">threadName</span><span class="p">)</span>    <span class="c1"># 注意 …</span></pre></div>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="../Python-Thread.html">Python多线程</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<p>多线程类相当于同时执行多个不同程序,多线程运行有如下有点:
+<em> 使用线程可以把占据长时间的程序中的任务放到后台处理,可以弹出一个进度条来显示处理进度.
+</em> 能提高程序的运行速度.
+* 在一些需要等待的任务实现上线程就体现出优势了,比如等待用户输入,文件读写和网络数据收发等.在这种情况下可以释放内存等珍贵资源.</p>
+<p>线程在执行过程中与进程还是有区别的.每个独立的线程有一个程序运行入口,顺序执行序列和程序的出口.但是线程不能独立执行,必须依存在应用程序中,由应用程序提供多个线程执行控制.<br>
+每个线程都有自己的一组cpu寄存器,称为线程的上下文,该上下文反映了线程上次运行该线程的cpu寄存器的状态.<br>
+指令指针和堆栈指针寄存器是线程上下文中两个最重要的寄存器.线程总是在进程得到上下文中运行的,这些地址都用于标志拥有线程的进程地址空间中的内存.<br>
+    * 线程可以被抢占(终端)
+    * 在其他线程正在运行时,线程可以暂时搁置(睡眠),这就是线程的退让.</p>
+<hr>
+<h4>学习python线程</h4>
+<p>Python中使用线程有两种方式:
+    1. 函数
+    2. 用类包装的线程对象</p>
+<p><code>thread.start_new_thread(function,args[, kwargs])</code><br>
+参数说明:<br>
+    * function:线程函数
+    * args:传递给线程的参数,它必须是个tuple类型.
+    * kwargs:可选参数</p>
+<p>示例如下:  </p>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="kn">import …</span></pre></div>
+  </div>
+</article>
+<hr />
+<article>
+  <div class="article_title">
+    <h1><a href="../Python-Socket.html">Python网络编程</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<h4>什么是Socket?</h4>
+<p>Socket又称套接字,应用程序通常通过"套接字"向网络发出请求或者应答网络请求,使主机间或者一台计算机上的进程间可以通讯.  </p>
+<hr>
+<h4>socket()函数</h4>
+<p>Python使用socket()函数来创建套接字,语法如下:<br>
+<code>socket.socket([family[, tpye[, proto]]])</code>  </p>
+<h5>参数</h5>
+<ul>
+<li>family:套接字家族可以使用AF_UNIX或者AF_INET</li>
+<li>type:套接字类型可以根据是面向连接还是非连接分为SOCK_STREAM或SOCK_DGRAM</li>
+<li>protocol:一般不填默认为0</li>
+</ul>
+<h5>Socket对象(内建)方法</h5>
+<table>
+<thead>
+<tr>
+<th align="center">服务器端</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">s.bind()</td>
+<td align="left">绑定地址(host,port)到套接字.在AF_INET下,以元组(host,port)的形式表示地址.</td>
+</tr>
+<tr>
+<td align="center">s.listen()</td>
+<td align="left">开始TPC监听.backlog指定在拒绝连接之前,操作系统可以挂起最大连接数量.最少设置为1,一般为5</td>
+</tr>
+<tr>
+<td align="center">s.accept()</td>
+<td align="left">被动接收TCP客户端连接,阻塞式等待连接到来 …</td></tr></tbody></table>
+  </div>
+</article>
+
+<footer>
+<meta charset="utf-8"/>
+<div id="paginator">
+<a href="../author/ivesein2.html" class="button_accent">下一页  &rarr;</a>
+
+</div>
+</footer>
+
+    <div id="ending_message">
+      <p>&copy; Ivesein. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>

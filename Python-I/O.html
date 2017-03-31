@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="../theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ivesein">
+  <meta name="description" content="Posts and writings by Ivesein">
+
+  <link href="http://ivesein.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs Atom" />
+
+<meta name="keywords" content="Python">
+
+  <title>
+    Ivesein-Blogs
+&ndash; Python文件 I/O  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="..">
+        <img src="/images/my_logo.png" alt="logo">
+      </a>
+      <h2><a href="..">Ivesein</a></h2>
+      <p>C/C++  PYTHON  GIT/GITHUB.  Work @Linux</p>
+      <ul>
+        <li><a href="../pages/guan-yu-wo.html">关于我</a></li>
+        <li><a href="../pages/wo-de-xiang-mu.html">我的项目</a></li>
+	<li><a href="mailto:ivesein@outlook.com" target="_blank">EMAIL</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href="..">Index</a> &brvbar; <a href="../archives.html">Archives</a>
+      &brvbar; <a href="http://ivesein.github.io/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="../Python-I/O.html">Python文件 I/O</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<h4>读取键盘输入</h4>
+<p>Python提供了两个内置函数从标准输入读入一行文本,默认的标准输入是键盘.<br>
+    * raw_input
+    * input</p>
+<h5>raw_input函数</h5>
+<p>raw_input()函数从标准输入读取一行,并返回一个字符串(会去掉结尾的换行符).  </p>
+<h5>input函数</h5>
+<p>input()函数和raw_input()函数基本相似,但是input可以接收一个python表达式为输入,并将运算结果返回.  </p>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1">#-*- coidng: UTF-8 -*-</span>
+
+<span class="nb">str</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入: &quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;你输入的内容是: &quot;</span><span class="p">,</span> <span class="nb">str</span> 
+</pre></div>
+
+
+<p>这回产生如下的对应输入的结果:  </p>
+<div class="highlight"><pre><span></span><span class="err">请输入</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="o">*</span><span class="mi">5</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span>
+<span class="err">你输入的内容是</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">]</span>
+</pre></div>
+
+
+<p><strong>raw_input和input的区别在于,raw_input读到什么返回什么;而input会对读到的内容里的表达式做运算再返回</strong>.</p>
+<hr>
+<h4>打开和关闭文件操作</h4>
+<p>python提供了必要的函数和方法进行默认情况下的文件基本操作.你可以使用file对象做大部分的文件操作.  </p>
+<h5>open()函数</h5>
+<p>你必须先用python内置的open()函数来打开一个文件,创建一个file对象来对打开的文件进行读写操作:  </p>
+<div class="highlight"><pre><span></span><span class="nb">file</span> <span class="nb">object</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span> <span class="p">[,</span> <span class="n">access_mode</span><span class="p">][,</span> <span class="n">buffering</span><span class="p">])</span>
+</pre></div>
+
+
+<p>各个参数的细节如下:<br>
+<em> file_name:改变量是要打开的文件名称的字符串值.
+</em> access_mode:该变量决定了打开文件的模式(只读,只写,读写,追加等等).所有可见值见如下的完全列表.这个参数是非强制的,默认文件访问模式为只读(r).<br>
+* buffering:如果该参数被设置为0,就不会有寄存.如果该参数为1,访问文件时会寄存.如果将该参数设置为大于1的整数,表明了这就是寄存区的缓冲大小.如果取负值,寄存区的缓冲区大小则为系统默认.  </p>
+<p>不同模式打开文件的完全类表:  </p>
+<table>
+<thead>
+<tr>
+<th>模式access_mode</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>只读,文件指针放在文件开头.这是默认打开模式</td>
+</tr>
+<tr>
+<td>rb</td>
+<td>二进制格式打开,文件指针放在文件开头</td>
+</tr>
+<tr>
+<td>r+</td>
+<td>读写打开,文件指针放在文件开头</td>
+</tr>
+<tr>
+<td>rb+</td>
+<td>二进制格式读写打开,文件指针放在文件开头</td>
+</tr>
+<tr>
+<td>w</td>
+<td>打开只用于写入,如果存在则将其覆盖,如果不存在,创建新文件</td>
+</tr>
+<tr>
+<td>wb</td>
+<td>以二进制打开只用与写,存在则覆盖,不存在则创建新文件</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>打开文件用于读写.如果存在则覆盖,不存在则创建新文件</td>
+</tr>
+<tr>
+<td>wb+</td>
+<td>以二进制打开文件用于读写.存在则覆盖,不存在创建新文件</td>
+</tr>
+<tr>
+<td>a</td>
+<td>打开文件追加.如果文件存在,指针放于文件结尾,不存在创建新文件写入</td>
+</tr>
+<tr>
+<td>ab</td>
+<td>以二进制格式打开文件追接</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>打开文件用于读写.如果文件存在,指针放于文件结尾.不存在创建新文件</td>
+</tr>
+<tr>
+<td>ab+</td>
+<td>以二进制格式打开文件用于读写,文件存在指针放于文件结尾追加写.不存在则创建新文件</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4>file对象的属性</h4>
+<p>一个文件被打开后,你有一个file对象接收该文件的各种信息.<br>
+以下是和file对象相关的所有属性列表:  </p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file.closed</td>
+<td>文件已关闭返回true,否则返回false</td>
+</tr>
+<tr>
+<td>file.mode</td>
+<td>返回打开文件的访问模式</td>
+</tr>
+<tr>
+<td>file.name</td>
+<td>返回打开的文件的名称</td>
+</tr>
+<tr>
+<td>file.softspace</td>
+<td>如果用print输出后,必须跟一个空格符则返回false,否则返回true</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4>close()方法</h4>
+<p>file对象的close()方法刷新缓冲区里任何还没写入的信息,并关闭该文件,这之后便不能再进行写入操作.<br>
+当一个文件对象的引用被重新指定给另一个文件时,python会关闭之前的文件.用close()方法关闭使用完的文件是一个很好的习惯:<br>
+<code>fileobject.close()</code>  </p>
+<h4>读写文件</h4>
+<p>file对象提供了一系列方法来访问文件,比如read()和write()方法来读取和写入文件.  </p>
+<h5>write()方法</h5>
+<p>write()方法可将任何字符串写入一个打开的文件.<strong>需要重点注意的是:python字符串可以是二进制数据,而不仅仅是文字.</strong><br>
+write()方法不会在字符串的结尾添加换行符('\n'),示例如下:  </p>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: UTF-8 -*-</span>
+
+<span class="c1">#打开一个文件</span>
+<span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span>
+<span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;你好python!</span><span class="se">\n</span><span class="s2">你好世界!</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1">#关闭打开的文件</span>
+<span class="n">fo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<h5>read()方法</h5>
+<p>read()方法从一个打开的文件中读取一个字符串.示例如下:  </p>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="c1">#打开一个文件</span>
+<span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">)</span>
+<span class="nb">str</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;读取到的字符串是: &quot;</span><span class="p">,</span> <span class="nb">str</span>
+
+<span class="c1">#关闭打开的文件</span>
+<span class="n">fo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<p>这里传入的参数是要从文件中读取的字符串的字节计数.该方法从文件的开头开始读取,如果没有传入参数,它会尝试读取尽可能多的内容,很可能是直到文件的末尾.  </p>
+<hr>
+<h4>文件定位</h4>
+<p>tell()方法告诉你文件内的当前位置,也就是下次读写会发生在文件开头这么多字节之后.<br>
+seek(offset [,from])方法改变当前文件的位置,offset变量表示要移动的字节数,from变量指定开始移动字节的参考位置,如果from为0,指将文件的开头作为移动的参考位置,如果为1,则使用当前位置为移动参考位置,如果为2则从末尾开始移动.<br>
+示例:  </p>
+<div class="highlight"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+
+<span class="n">fo</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;foo.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r+&quot;</span><span class="p">)</span>
+<span class="nb">str</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span> <span class="s2">&quot;读到的字符串是: &quot;</span><span class="p">,</span> <span class="nb">str</span>
+
+<span class="c1">#查找当前位置</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">tell</span><span class="p">()</span>
+<span class="k">print</span> <span class="s2">&quot;当前位置是: &quot;</span><span class="p">,</span> <span class="n">position</span>
+
+<span class="c1">#把指针再重新定位到文件的开头</span>
+<span class="n">position</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nb">str</span> <span class="o">=</span> <span class="n">fo</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">pring</span> <span class="s2">&quot;重新读取字符串: &quot;</span><span class="p">,</span> <span class="nb">str</span>
+
+<span class="c1">#关闭打开的文件</span>
+<span class="n">fo</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: 2016-06-10(五)</p>
+    <p>Category: <a href="../category/python.html">Python</a>
+ &ndash; Tags:
+      <a href="../tag/python.html">Python</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Ivesein. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>

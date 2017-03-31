@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="./theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="./theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="./theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ivesein">
+  <meta name="description" content="Posts and writings by Ivesein">
+
+  <link href="http://ivesein.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Ivesein-Blogs Atom" />
+
+<meta name="keywords" content="Python">
+
+  <title>
+    Ivesein-Blogs
+&ndash; Python格式化输出  </title>
+
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href=".">
+        <img src="/images/my_logo.png" alt="logo">
+      </a>
+      <h2><a href=".">Ivesein</a></h2>
+      <p>C/C++  PYTHON  GIT/GITHUB.  Work @Linux</p>
+      <ul>
+        <li><a href="./pages/guan-yu-wo.html">关于我</a></li>
+        <li><a href="./pages/wo-de-xiang-mu.html">我的项目</a></li>
+	<li><a href="mailto:ivesein@outlook.com" target="_blank">EMAIL</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      <a href=".">Index</a> &brvbar; <a href="./archives.html">Archives</a>
+      &brvbar; <a href="http://ivesein.github.io/feeds/all.atom.xml">Atom</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="./Python_Output_Formatting.html">Python格式化输出</a></h1>
+  </div>
+  <div class="article_text">
+    <hr>
+<h4>格式化输出</h4>
+<p>目前遇到过两种从输出值的方法:<strong>表达式语句</strong>和<strong>print</strong>语句.(第三种方式时使用文件对象的write()方法;标准输出文件可以引用<strong>sys.stdout</strong>,详细内容见库参考手册)  </p>
+<p>有两种方法来设置输出格式:<br>
+<em> 第一种是自己做所有的字符串处理;使用字符串切片和连接操作,你可以创建任何你想要的布局.字符串类型有一些方法,用于执行将字符串填充到指定列宽度的又用操作.
+</em> 第二种方法是使用str.format()方法.</p>
+<p><strong>string</strong>模块包含一个<strong>Template</strong>类,提供另外一种向字符串带入值的方法.
+如何将值转换为字符串?Python提供了将任何值转换为字符串的方法:将值传递给repr()和str()函数.  </p>
+<h5>Python提供填充空格使字符串在给定的列对其的方法</h5>
+<ul>
+<li>str.rjust():在左侧填充空格使字符串在给定宽度的列右对齐</li>
+<li>str.center():在左右两侧填充空格使字符串在给定宽度的列居中对其</li>
+<li>str.ljust():左对齐</li>
+</ul>
+<p>这些方法不会输出任何内容,它们值返回新的字符串.如果输入的字符串太长,它们不会截断字符串,而是保持原样返回;这会使列的格式变得混乱,但是通常好于另外一种选择,那可能是一个错误的值.(如果想要截断,可以加上一个切片操作,例如x.ljust(n)[:n])  </p>
+<p>另外一种方法str.zfill(),它向数值字符串左侧填充0,该函数可以正确识别重负好:  </p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;12&#39;</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="s1">&#39;00012&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;-3.14&#39;</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
+<span class="s1">&#39;-003.14&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="s1">&#39;3.14159265359&#39;</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="s1">&#39;3.14159265359&#39;</span>
+</pre></div>
+
+
+<hr>
+<h5>str.format()方法的基本用法如下</h5>
+<h6>花括号及其中的字符()称为格式字段)将被替换为传递给str.format()方法的对象.</h6>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;We are the {} who say &quot;{}!&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;knights&#39;</span><span class="p">,</span> <span class="s1">&#39;Ni&#39;</span><span class="p">)</span>
+<span class="n">We</span> <span class="n">are</span> <span class="n">the</span> <span class="n">knights</span> <span class="n">who</span> <span class="n">say</span> <span class="s2">&quot;Ni!&quot;</span>
+</pre></div>
+
+
+<h6>括号中的数字指传递给str.format()方法的对象的位置.</h6>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;{0} and {1}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">)</span>
+<span class="n">spam</span> <span class="ow">and</span> <span class="n">eggs</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;{1} and {0}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">)</span>
+<span class="n">eggs</span> <span class="ow">and</span> <span class="n">spam</span>
+</pre></div>
+
+
+<h6>如果str.format()方法使用关键字参数,那么将通过参数名称引用它们的值</h6>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;This {food} is {adjective}.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">food</span><span class="o">=</span><span class="s1">&#39;spam&#39;</span><span class="p">,</span> <span class="n">adjective</span><span class="o">=</span><span class="s1">&#39;absolutely horrible&#39;</span><span class="p">)</span>
+<span class="n">This</span> <span class="n">spam</span> <span class="ow">is</span> <span class="n">absolutely</span> <span class="n">horrible</span><span class="o">.</span>
+</pre></div>
+
+
+<h6>字段名后允许可选的':'和格式指令.这允许更好地控制如何设置值的格式.</h6>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">math</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;The value of PI is approximately {0:.3f}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">The</span> <span class="n">value</span> <span class="n">of</span> <span class="n">PI</span> <span class="ow">is</span> <span class="n">approximately</span> <span class="mf">3.14</span><span class="o">.</span> 
+</pre></div>
+
+
+<p>这个例子将pi转为3为精度.  </p>
+<h6>':'后面跟一个整数可以限定盖子段的最小宽度.这在美化表格时十分又用</h6>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Sjored&#39;</span><span class="p">:</span><span class="mi">4217</span><span class="p">,</span><span class="s1">&#39;Jack&#39;</span><span class="p">:</span><span class="mi">4098</span><span class="p">,</span><span class="s1">&#39;Dcab&#39;</span><span class="p">:</span><span class="mi">7678</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">phone</span> <span class="ow">in</span> <span class="n">table</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="o">...</span>     <span class="k">print</span> <span class="s1">&#39;{0:10} ==&gt; {1:10d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">phone</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">Jack</span>      <span class="o">==&gt;</span>      <span class="mi">4098</span>
+<span class="n">Dcab</span>      <span class="o">==&gt;</span>      <span class="mi">7678</span>
+<span class="n">Sjoerd</span>    <span class="o">==&gt;</span>      <span class="mi">4127</span>
+</pre></div>
+
+
+<h6>如果有一个很长的格式字符串但又不想分开写,要按名字而不是位置引用变量,那么可以传入一个字典,然后使用'[]'访问</h6>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Sjoerd&#39;</span><span class="p">:</span> <span class="mi">4127</span><span class="p">,</span> <span class="s1">&#39;Jack&#39;</span><span class="p">:</span> <span class="mi">4098</span><span class="p">,</span> <span class="s1">&#39;Dcab&#39;</span><span class="p">:</span> <span class="mi">8637678</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Jack: {0[Jack]:d}; Sjoerd: {0[Sjoerd]:d}; &#39;</span>
+<span class="o">...</span>        <span class="s1">&#39;Dcab: {0[Dcab]:d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">table</span><span class="p">))</span>
+<span class="n">Jack</span><span class="p">:</span> <span class="mi">4098</span><span class="p">;</span> <span class="n">Sjoerd</span><span class="p">:</span> <span class="mi">4127</span><span class="p">;</span> <span class="n">Dcab</span><span class="p">:</span> <span class="mi">8637678</span>
+</pre></div>
+
+
+<p>也可以用<strong>'**'</strong>符号将这个字典以关键字参数的方式传入</p>
+<div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">table</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Sjoerd&#39;</span><span class="p">:</span> <span class="mi">4127</span><span class="p">,</span> <span class="s1">&#39;Jack&#39;</span><span class="p">:</span> <span class="mi">4098</span><span class="p">,</span> <span class="s1">&#39;Dcab&#39;</span><span class="p">:</span> <span class="mi">8637678</span><span class="p">}</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="s1">&#39;Jack: {Jack:d}; Sjoerd: {Sjoerd:d}; Dcab: {Dcab:d}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">table</span><span class="p">)</span>
+<span class="n">Jack</span><span class="p">:</span> <span class="mi">4098</span><span class="p">;</span> <span class="n">Sjoerd</span><span class="p">:</span> <span class="mi">4127</span><span class="p">;</span> <span class="n">Dcab</span><span class="p">:</span> <span class="mi">8637678</span>
+</pre></div>
+
+
+<p>这种方式与内置函数vars()组合起来更为有用,该函数返回一个包含所有局部变量的字典.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: 2016-06-17(五)</p>
+    <p>Category: <a href="./category/python.html">Python</a>
+ &ndash; Tags:
+      <a href="./tag/python.html">Python</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; Ivesein. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+    </div>
+  </main>
+</body>
+</html>
